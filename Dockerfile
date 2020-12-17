@@ -15,7 +15,7 @@ FROM alpine:3.8
 
 RUN apk add --no-cache libevent jansson libconfig libexecinfo \
                        readline lua openssl
-RUN adduser telegramd
+RUN adduser -D telegramd
 RUN mkdir -p /home/telegramd/.telegram-cli ; chown -R telegramd:telegramd /home/telegramd/.telegram-cli
 
 
