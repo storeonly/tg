@@ -1,4 +1,4 @@
-FROM alpine:latest AS BUILD
+FROM alpine:3.8 AS BUILD
 MAINTAINER Gustavo Angulo <woakas@ubidots.com>
 
 RUN apk --no-cache add readline readline-dev libconfig libconfig-dev lua \
@@ -11,11 +11,11 @@ WORKDIR /tg
 RUN ./configure && make
 
 # Binary telegram-cli
-FROM alpine:latest
+FROM alpine:3.8
 
 RUN apk add --no-cache libevent jansson libconfig libexecinfo \
                        readline lua openssl
-RUN adduser -D telegramd
+RUN adduser telegramd
 RUN mkdir -p /home/telegramd/.telegram-cli ; chown -R telegramd:telegramd /home/telegramd/.telegram-cli
 
 
