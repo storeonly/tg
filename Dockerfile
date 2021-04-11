@@ -5,7 +5,7 @@ RUN apk --no-cache add readline readline-dev libconfig libconfig-dev lua \
                        lua-dev luajit-dev luajit openssl openssl-dev \
                        build-base libevent libevent-dev python-dev \
                        jansson jansson-dev git \
-                       bash \
+                       
 RUN git clone --recursive https://github.com/vysheng/tg.git /tg
 
 WORKDIR /tg
@@ -15,7 +15,8 @@ RUN ./configure && make
 FROM alpine:3.7
 
 RUN apk add --no-cache libevent jansson libconfig libexecinfo \
-                       readline lua openssl
+                       readline lua openssl \
+                       bash \
 RUN adduser -D telegramd
 RUN mkdir -p /home/telegramd/.telegram-cli ; chown -R telegramd:telegramd /home/telegramd/.telegram-cli
 
