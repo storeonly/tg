@@ -4,7 +4,8 @@ MAINTAINER Gustavo Angulo <woakas@ubidots.com>
 RUN apk --no-cache add readline readline-dev libconfig libconfig-dev lua \
                        lua-dev luajit-dev luajit openssl openssl-dev \
                        build-base libevent libevent-dev python-dev \
-                       jansson jansson-dev git
+                       jansson jansson-dev git \
+                       bash \
 RUN git clone --recursive https://github.com/vysheng/tg.git /tg
 
 WORKDIR /tg
